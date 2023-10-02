@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <projectSettings>
-  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="3d31d2d9fea44379bf98fe7e04d3cf52" />
+  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="fb85665a7e394b2bae0b8376379c5ff3" />
   <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
   <projectSetting name="Google.IOSResolver.AutoPodToolInstallInEditor" value="False" />
   <projectSetting name="Google.IOSResolver.CocoapodsIntegrationMethod" value="2" />
@@ -9,7 +9,7 @@
   <projectSetting name="Google.IOSResolver.PodfileAlwaysAddMainTarget" value="True" />
   <projectSetting name="Google.IOSResolver.PodfileEnabled" value="True" />
   <projectSetting name="Google.IOSResolver.PodfileStaticLinkFrameworks" value="True" />
-  <projectSetting name="Google.IOSResolver.PodToolExecutionViaShellEnabled" value="False" />
+  <projectSetting name="Google.IOSResolver.PodToolExecutionViaShellEnabled" value="True" />
   <projectSetting name="Google.IOSResolver.PodToolShellExecutionSetLang" value="True" />
   <projectSetting name="Google.IOSResolver.SwiftFrameworkSupportWorkaroundEnabled" value="True" />
   <projectSetting name="Google.IOSResolver.SwiftLanguageVersion" value="5.0" />
