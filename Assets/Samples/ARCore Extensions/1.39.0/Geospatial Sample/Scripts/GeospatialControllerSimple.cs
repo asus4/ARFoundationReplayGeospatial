@@ -36,7 +36,6 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
     /// </summary>
     public class GeospatialControllerSimple : MonoBehaviour
     {
-        private ARSessionOrigin _sessionOrigin;
         private AREarthManager _earthManager;
         private ARStreetscapeGeometryManager _streetScapeGeometryManager;
 
@@ -59,7 +58,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             Screen.orientation = ScreenOrientation.Portrait;
             Application.targetFrameRate = 60;
 
-            _sessionOrigin = FindObjectOfType<ARSessionOrigin>();
+            var _sessionOrigin = FindObjectOfType<ARSessionOrigin>();
             _earthManager = _sessionOrigin.GetComponent<AREarthManager>();
             _streetScapeGeometryManager = _sessionOrigin.GetComponent<ARStreetscapeGeometryManager>();
         }
@@ -82,15 +81,11 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
 
         private IEnumerator Start()
         {
-            Debug.Log("Starting location services.");
             yield return StartLocationService();
+            Debug.Log("Location services started.");
 
             yield return new WaitUntil(() =>
-            {
-                var state = ARSession.state;
-                return state != ARSessionState.SessionInitializing &&
-                    state != ARSessionState.SessionTracking;
-            });
+                ARSession.state != ARSessionState.SessionInitializing);
 
             Debug.Log("ARSession state: " + ARSession.state);
 
