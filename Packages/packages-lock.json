@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.github.asus4.arfoundationreplay": {
+      "version": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.xr.arfoundation": "5.1.0"
+      }
+    },
     "com.google.ar.core.arfoundation.extensions": {
       "version": "https://github.com/google-ar/arcore-unity-extensions.git#1.39.0",
       "depth": 0,
