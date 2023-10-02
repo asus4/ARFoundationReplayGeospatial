@@ -21,7 +21,6 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
 {
     using System.Collections;
     using System.Collections.Generic;
-    using System.Threading;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -151,55 +150,52 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                 return;
             }
 
-            var renderObject = new GameObject("StreetscapeGeometryMesh",
+            var go = new GameObject("StreetscapeGeometryMesh",
                 typeof(MeshFilter), typeof(MeshRenderer));
 
-            if (renderObject)
+            if (go)
             {
-                renderObject.transform.position = new Vector3(0, 0.5f, 0);
-                renderObject.GetComponent<MeshFilter>().mesh = geometry.mesh;
+                go.transform.position = new Vector3(0, 0.5f, 0);
+                go.GetComponent<MeshFilter>().mesh = geometry.mesh;
 
                 // Add a material with transparent diffuse shader.
-                if (geometry.streetscapeGeometryType ==
-                    StreetscapeGeometryType.Building)
+                if (geometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
                 {
-                    renderObject.GetComponent<MeshRenderer>().material =
+                    go.GetComponent<MeshRenderer>().material =
                         StreetscapeGeometryMaterialBuilding[_buildingMatIndex];
                     _buildingMatIndex =
                         (_buildingMatIndex + 1) % StreetscapeGeometryMaterialBuilding.Length;
                 }
                 else
                 {
-                    renderObject.GetComponent<MeshRenderer>().material =
+                    go.GetComponent<MeshRenderer>().material =
                         StreetscapeGeometryMaterialTerrain;
                 }
 
-                renderObject.transform.SetPositionAndRotation(
+                go.transform.SetPositionAndRotation(
                     geometry.pose.position, geometry.pose.rotation);
 
-                _streetScapeGeometries.Add(geometry.trackableId, renderObject);
+                _streetScapeGeometries.Add(geometry.trackableId, go);
             }
         }
 
 
         private void UpdateRenderObject(ARStreetscapeGeometry geometry)
         {
-            if (_streetScapeGeometries.ContainsKey(geometry.trackableId))
+            if (_streetScapeGeometries.TryGetValue(geometry.trackableId, out GameObject go))
             {
-                GameObject renderObject = _streetScapeGeometries[geometry.trackableId];
-                renderObject.transform.position = geometry.pose.position;
-                renderObject.transform.rotation = geometry.pose.rotation;
+                go.transform.SetPositionAndRotation(
+                    geometry.pose.position, geometry.pose.rotation);
             }
         }
 
 
         private void DestroyRenderObject(ARStreetscapeGeometry geometry)
         {
-            if (_streetScapeGeometries.ContainsKey(geometry.trackableId))
+            if (_streetScapeGeometries.TryGetValue(geometry.trackableId, out GameObject go))
             {
-                var go = _streetScapeGeometries[geometry.trackableId];
-                _streetScapeGeometries.Remove(geometry.trackableId);
                 Destroy(go);
+                _streetScapeGeometries.Remove(geometry.trackableId);
             }
         }
 
@@ -255,7 +251,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                 $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
                 $"  ALT: {pose.Altitude:F2}\n" +
                 $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
-                $". EunRotation: {pose.EunRotation:F2}\n" +
+                $"  EunRotation: {pose.EunRotation:F2}\n" +
                 $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}";
         }
     }
