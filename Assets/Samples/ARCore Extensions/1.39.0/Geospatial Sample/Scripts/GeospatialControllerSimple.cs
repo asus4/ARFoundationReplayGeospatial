@@ -24,9 +24,10 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
     using System.Text;
     using UnityEngine;
     using UnityEngine.UI;
-
     using UnityEngine.XR.ARFoundation;
     using UnityEngine.XR.ARSubsystems;
+    using Unity.XR.CoreUtils;
+    using ARFoundationReplay;
 
 #if UNITY_ANDROID
     using UnityEngine.Android;
@@ -37,7 +38,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
     /// </summary>
     public class GeospatialControllerSimple : MonoBehaviour
     {
-        private AREarthManager _earthManager;
+        private AREarthManagerWithReplay _earthManager;
         private ARStreetscapeGeometryManager _streetScapeGeometryManager;
 
 
@@ -60,9 +61,10 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             Screen.orientation = ScreenOrientation.Portrait;
             Application.targetFrameRate = 60;
 
-            var _sessionOrigin = FindObjectOfType<ARSessionOrigin>();
-            _earthManager = _sessionOrigin.GetComponent<AREarthManager>();
-            _streetScapeGeometryManager = _sessionOrigin.GetComponent<ARStreetscapeGeometryManager>();
+            var origin = FindObjectOfType<XROrigin>();
+            _earthManager = origin.GetComponent<AREarthManagerWithReplay>();
+            _streetScapeGeometryManager = origin.GetComponent<ARStreetscapeGeometryManager>();
+            Debug.Log("Geospatial sample initialized.");
         }
 
         /// <summary>

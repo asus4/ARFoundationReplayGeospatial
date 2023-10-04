@@ -529,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691323909}
   - component: {fileID: 691323908}
-  - component: {fileID: 691323912}
+  - component: {fileID: 691323915}
   - component: {fileID: 691323911}
   - component: {fileID: 691323914}
   m_Layer: 0
@@ -586,18 +586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 0}
   m_DetectionMode: -1
---- !u!114 &691323912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691323907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04013b89158ee479c9d622e942e3b60b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &691323914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +600,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnchorPrefab: {fileID: 5831908950388203684, guid: f09a13e3d47394ab588884ffd124d732,
     type: 3}
+--- !u!114 &691323915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691323907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a48b4474e9f74638a200ff3f897efbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1154590966
 GameObject:
   m_ObjectHideFlags: 0
