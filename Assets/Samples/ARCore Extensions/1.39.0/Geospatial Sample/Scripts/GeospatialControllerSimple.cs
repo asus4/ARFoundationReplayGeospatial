@@ -21,6 +21,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Text;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -52,6 +53,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
         private Dictionary<TrackableId, GameObject> _streetScapeGeometries = new();
 
         private bool _isInitialized = false;
+        private readonly StringBuilder _sb = new();
 
         private void Awake()
         {
@@ -231,23 +233,28 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
 
         private void UpdateDebugInfo()
         {
-            var pose = _earthManager.EarthState == EarthState.Enabled &&
-                _earthManager.EarthTrackingState == TrackingState.Tracking ?
-                _earthManager.CameraGeospatialPose : new GeospatialPose();
+            bool isPoseAvailable = _earthManager.EarthState == EarthState.Enabled
+                && _earthManager.EarthTrackingState == TrackingState.Tracking;
+            var pose = isPoseAvailable
+                ? _earthManager.CameraGeospatialPose
+                : new GeospatialPose();
             var supported = _earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
-            DebugText.text =
-                $"IsInitialized: {_isInitialized}\n" +
-                $"SessionState: {ARSession.state}\n" +
-                $"LocationServiceStatus: {Input.location.status}\n" +
-                $"FeatureSupported: {supported}\n" +
-                $"EarthState: {_earthManager.EarthState}\n" +
-                $"EarthTrackingState: {_earthManager.EarthTrackingState}\n" +
-                $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
-                $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
-                $"  ALT: {pose.Altitude:F2}\n" +
-                $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
-                $"  EunRotation: {pose.EunRotation:F2}\n" +
-                $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}";
+
+            _sb.Clear();
+            _sb.AppendLine($"IsInitialized: {_isInitialized}");
+            _sb.AppendLine($"SessionState: {ARSession.state}");
+            _sb.AppendLine($"LocationServiceStatus: {Input.location.status}");
+            _sb.AppendLine($"FeatureSupported: {supported}");
+            _sb.AppendLine($"EarthState: {_earthManager.EarthState}");
+            _sb.AppendLine($"EarthTrackingState: {_earthManager.EarthTrackingState}");
+            _sb.AppendLine($"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}");
+            _sb.AppendLine($"  HorizontalAcc: {pose.HorizontalAccuracy:F6}");
+            _sb.AppendLine($"  ALT: {pose.Altitude:F2}");
+            _sb.AppendLine($"  VerticalAcc: {pose.VerticalAccuracy:F2}");
+            _sb.AppendLine($"  EunRotation: {pose.EunRotation:F2}");
+            _sb.AppendLine($"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}");
+            DebugText.text = _sb.ToString();
+
         }
     }
 }

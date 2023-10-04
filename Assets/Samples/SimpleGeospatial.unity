@@ -885,13 +885,21 @@ MonoBehaviour:
       m_Name: Position
       m_Type: 0
       m_ExpectedControlType: Vector3
-      m_Id: 0ca62dfb-dfec-4d3f-a536-6fe1c088809c
+      m_Id: 346a8263-eb03-42ec-a966-6761b055a619
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 4bf88d64-7007-47ba-aa49-f86031b46eb1
-        m_Path: '*/{DevicePosition}'
+        m_Id: ff248cc0-8dca-4d0e-9421-f6996e4e0604
+        m_Path: <XRHMD>/centerEyePosition
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 0
+      - m_Name: 
+        m_Id: e5175570-6220-421c-9acf-1a8a2c8ffcd6
+        m_Path: <HandheldARInputDevice>/devicePosition
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -905,13 +913,21 @@ MonoBehaviour:
       m_Name: Rotation
       m_Type: 0
       m_ExpectedControlType: Quaternion
-      m_Id: dd067708-4bf7-4a6f-9954-986bff69ee95
+      m_Id: ccd98e99-783a-421c-80cd-a833f2576383
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 7bca9c9f-6c84-45bc-bf17-cc3b5803920b
-        m_Path: '*/{DeviceRotation}'
+        m_Id: bd3634d1-56f9-4644-a7f9-c1c3f4650998
+        m_Path: <XRHMD>/centerEyeRotation
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Rotation
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 262c96ca-0906-4dc6-aafd-0420f6b35fa8
+        m_Path: <HandheldARInputDevice>/deviceRotation
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -925,25 +941,17 @@ MonoBehaviour:
       m_Name: Tracking State
       m_Type: 0
       m_ExpectedControlType: Integer
-      m_Id: 1c3f2d40-0985-42e2-9528-ee5f708c19cd
+      m_Id: 815224ba-1d73-453b-b2c1-4c99dbc4e1a2
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: fc00d7a0-9588-467a-b5a9-feef62d32a1c
-        m_Path: '*/{TrackingState}'
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Tracking State
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: fcb32581-5fe1-4f59-b511-f4ea67083421
+    m_Id: cdb94fbd-bb03-4c66-a857-4fb980a2773a
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -952,7 +960,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: db3950d7-cefa-4e14-ad60-31f8f9ed4913
+    m_Id: a1e9a027-6591-4089-91ee-3af1fe87dd36
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
