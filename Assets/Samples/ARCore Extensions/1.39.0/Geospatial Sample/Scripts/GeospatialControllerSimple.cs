@@ -152,30 +152,26 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             var go = new GameObject("StreetscapeGeometryMesh",
                 typeof(MeshFilter), typeof(MeshRenderer));
 
-            if (go)
+            go.GetComponent<MeshFilter>().sharedMesh = geometry.mesh;
+
+            // Add a material with transparent diffuse shader.
+            if (geometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
             {
-                go.transform.position = new Vector3(0, 0.5f, 0);
-                go.GetComponent<MeshFilter>().mesh = geometry.mesh;
-
-                // Add a material with transparent diffuse shader.
-                if (geometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
-                {
-                    go.GetComponent<MeshRenderer>().material =
-                        StreetscapeGeometryMaterialBuilding[_buildingMatIndex];
-                    _buildingMatIndex =
-                        (_buildingMatIndex + 1) % StreetscapeGeometryMaterialBuilding.Length;
-                }
-                else
-                {
-                    go.GetComponent<MeshRenderer>().material =
-                        StreetscapeGeometryMaterialTerrain;
-                }
-
-                go.transform.SetPositionAndRotation(
-                    geometry.pose.position, geometry.pose.rotation);
-
-                _streetScapeGeometries.Add(geometry.trackableId, go);
+                go.GetComponent<MeshRenderer>().material =
+                    StreetscapeGeometryMaterialBuilding[_buildingMatIndex];
+                _buildingMatIndex =
+                    (_buildingMatIndex + 1) % StreetscapeGeometryMaterialBuilding.Length;
             }
+            else
+            {
+                go.GetComponent<MeshRenderer>().material =
+                    StreetscapeGeometryMaterialTerrain;
+            }
+
+            Pose pose = geometry.pose;
+            go.transform.SetPositionAndRotation(pose.position, pose.rotation);
+            _streetScapeGeometries.Add(geometry.trackableId, go);
+
         }
 
 
