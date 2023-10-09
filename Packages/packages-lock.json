@@ -9,15 +9,14 @@
       }
     },
     "com.google.ar.core.arfoundation.extensions": {
-      "version": "https://github.com/google-ar/arcore-unity-extensions.git#1.39.0",
+      "version": "file:../../arcore-unity-extensions",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity.xr.arfoundation": "4.1.5",
         "com.unity.xr.arcore": "4.1.5",
         "com.unity.xr.arkit": "4.1.5"
-      },
-      "hash": "92e1dbfdb637b9d29372e3891dcd55194e33d601"
+      }
     },
     "com.unity.burst": {
       "version": "1.8.8",
