@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.cysharp.memorypack": "https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/Plugins/MemoryPack#1.9.16",
     "com.github.asus4.arfoundationreplay": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
     "com.google.ar.core.arfoundation.extensions": "file:../../arcore-unity-extensions",
     "com.unity.ide.visualstudio": "2.0.21",

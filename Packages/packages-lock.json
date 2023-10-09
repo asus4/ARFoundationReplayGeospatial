@@ -1,11 +1,19 @@
 {
   "dependencies": {
+    "com.cysharp.memorypack": {
+      "version": "https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/Plugins/MemoryPack#1.9.16",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9aa51ce1e8da24e27053bf2448c127c4263c2096"
+    },
     "com.github.asus4.arfoundationreplay": {
       "version": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.unity.xr.arfoundation": "5.1.0"
+        "com.unity.xr.arfoundation": "5.1.0",
+        "com.cysharp.memorypack": "1.9.16"
       }
     },
     "com.google.ar.core.arfoundation.extensions": {
