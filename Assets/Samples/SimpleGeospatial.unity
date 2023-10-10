@@ -292,14 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugText: {fileID: 1664493018}
-  StreetscapeGeometryMaterialBuilding:
-  - {fileID: 2100000, guid: 7894c3ef401af4931aa6a101b5fbd724, type: 2}
-  - {fileID: 2100000, guid: 4b2d0d8634e20448cb7ef06579fe9bbb, type: 2}
-  - {fileID: 2100000, guid: 3a5a66d1f5c534a27a708c3f235eaa5d, type: 2}
-  StreetscapeGeometryMaterialTerrain: {fileID: 2100000, guid: 775ce3c1866ce4692b5d2cd9c1848a39,
-    type: 2}
   streetscapeMaterial: {fileID: 2100000, guid: 775ce3c1866ce4692b5d2cd9c1848a39, type: 2}
-  colorForTerrain: {r: 0.047864318, g: 1, b: 0, a: 0.2627451}
   streetscapeColors:
   - {r: 0.15395391, g: 1, b: 0, a: 0.24705882}
   - {r: 1, g: 0.57580614, b: 0, a: 0.24705882}
@@ -722,6 +715,7 @@ GameObject:
   - component: {fileID: 1451910693}
   - component: {fileID: 1451910692}
   - component: {fileID: 1451910696}
+  - component: {fileID: 1451910698}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -809,7 +803,7 @@ MonoBehaviour:
   m_FocusMode: -1
   m_LightEstimationMode: -1
   m_AutoFocus: 1
-  m_LightEstimation: 1
+  m_LightEstimation: -1
   m_FacingDirection: 1
   m_RenderMode: 0
 --- !u!4 &1451910695
@@ -972,6 +966,23 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &1451910698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451910690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15f82cc229284894964d2d30806969d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HumanSegmentationStencilMode: 1
+  m_HumanSegmentationDepthMode: 1
+  m_EnvironmentDepthMode: 3
+  m_EnvironmentDepthTemporalSmoothing: 1
+  m_OcclusionPreferenceMode: 0
 --- !u!1 &1476232294
 GameObject:
   m_ObjectHideFlags: 0
