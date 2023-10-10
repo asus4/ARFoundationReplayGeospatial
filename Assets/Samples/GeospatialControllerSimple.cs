@@ -39,7 +39,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
     /// </summary>
     public class GeospatialControllerSimple : MonoBehaviour
     {
-        private AREarthManagerWithReplay _earthManager;
+        private AREarthManager _earthManager;
         private ARStreetscapeGeometryManager _streetScapeGeometryManager;
 
 
@@ -65,7 +65,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             Application.targetFrameRate = 60;
 
             var origin = FindObjectOfType<XROrigin>();
-            _earthManager = origin.GetComponent<AREarthManagerWithReplay>();
+            _earthManager = origin.GetComponent<AREarthManager>();
             _streetScapeGeometryManager = origin.GetComponent<ARStreetscapeGeometryManager>();
             Debug.Log("Geospatial sample initialized.");
 
@@ -132,12 +132,11 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
         {
             foreach (var added in eventArgs.Added)
             {
-                InstantiateRenderObject(added);
+                AddOrUpdateRenderObject(added);
             }
             foreach (var updated in eventArgs.Updated)
             {
-                InstantiateRenderObject(updated);
-                UpdateRenderObject(updated);
+                AddOrUpdateRenderObject(updated);
             }
             foreach (var removed in eventArgs.Removed)
             {
@@ -145,30 +144,30 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             }
         }
 
-        private void InstantiateRenderObject(ARStreetscapeGeometry geometry)
+        private void AddOrUpdateRenderObject(ARStreetscapeGeometry geometry)
         {
             if (geometry.mesh == null)
             {
                 return;
             }
-            Debug.Log($"InstantiateRenderObject: {geometry.trackableId}");
+
+            Pose pose = geometry.pose;
 
             // Check if a render object already exists for this streetscapegeometry and
             // create one if not.
-            if (_streetScapeGeometries.ContainsKey(geometry.trackableId))
+            if (_streetScapeGeometries.TryGetValue(geometry.trackableId, out GameObject go))
             {
+                // Just update the pose.
+                go.transform.SetPositionAndRotation(pose.position, pose.rotation);
                 return;
             }
 
-            var go = new GameObject("StreetscapeGeometryMesh",
-                typeof(MeshFilter), typeof(MeshRenderer));
+            go = new GameObject("StreetscapeGeometryMesh");
+            go.AddComponent<MeshFilter>().sharedMesh = geometry.mesh;
 
-            go.GetComponent<MeshFilter>().sharedMesh = geometry.mesh;
-
-            var renderer = go.GetComponent<MeshRenderer>();
+            // Set materials
+            var renderer = go.AddComponent<MeshRenderer>();
             renderer.sharedMaterial = streetscapeMaterial;
-
-            // Add a material with transparent diffuse shader.
             if (geometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
             {
                 int length = _propertyBlocks.Length - 1;
@@ -180,22 +179,9 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                 renderer.SetPropertyBlock(_propertyBlocks[0]);
             }
 
-            Pose pose = geometry.pose;
             go.transform.SetPositionAndRotation(pose.position, pose.rotation);
             _streetScapeGeometries.Add(geometry.trackableId, go);
-
         }
-
-
-        private void UpdateRenderObject(ARStreetscapeGeometry geometry)
-        {
-            if (_streetScapeGeometries.TryGetValue(geometry.trackableId, out GameObject go))
-            {
-                go.transform.SetPositionAndRotation(
-                    geometry.pose.position, geometry.pose.rotation);
-            }
-        }
-
 
         private void DestroyRenderObject(ARStreetscapeGeometry geometry)
         {
@@ -205,7 +191,6 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                 _streetScapeGeometries.Remove(geometry.trackableId);
             }
         }
-
 
         private IEnumerator StartLocationService()
         {
