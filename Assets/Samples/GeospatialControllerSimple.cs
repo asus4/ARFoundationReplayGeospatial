@@ -21,6 +21,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using UnityEngine;
     using UnityEngine.UI;
@@ -46,15 +47,17 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
         [SerializeField] Text DebugText;
 
         [SerializeField]
-        private Material[] StreetscapeGeometryMaterialBuilding;
+        private Material streetscapeMaterial;
         [SerializeField]
-        private Material StreetscapeGeometryMaterialTerrain;
+        private Color[] streetscapeColors;
 
         private int _buildingMatIndex = 0;
         private Dictionary<TrackableId, GameObject> _streetScapeGeometries = new();
 
         private bool _isInitialized = false;
         private readonly StringBuilder _sb = new();
+
+        private MaterialPropertyBlock[] _propertyBlocks;
 
         private void Awake()
         {
@@ -65,6 +68,13 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             _earthManager = origin.GetComponent<AREarthManagerWithReplay>();
             _streetScapeGeometryManager = origin.GetComponent<ARStreetscapeGeometryManager>();
             Debug.Log("Geospatial sample initialized.");
+
+            _propertyBlocks = streetscapeColors.Select(color =>
+            {
+                var mpb = new MaterialPropertyBlock();
+                mpb.SetColor("_BaseColor", color);
+                return mpb;
+            }).ToArray();
         }
 
         /// <summary>
@@ -141,6 +151,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             {
                 return;
             }
+            Debug.Log($"InstantiateRenderObject: {geometry.trackableId}");
 
             // Check if a render object already exists for this streetscapegeometry and
             // create one if not.
@@ -154,18 +165,19 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
 
             go.GetComponent<MeshFilter>().sharedMesh = geometry.mesh;
 
+            var renderer = go.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = streetscapeMaterial;
+
             // Add a material with transparent diffuse shader.
             if (geometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
             {
-                go.GetComponent<MeshRenderer>().material =
-                    StreetscapeGeometryMaterialBuilding[_buildingMatIndex];
-                _buildingMatIndex =
-                    (_buildingMatIndex + 1) % StreetscapeGeometryMaterialBuilding.Length;
+                int length = _propertyBlocks.Length - 1;
+                renderer.SetPropertyBlock(_propertyBlocks[1 + _buildingMatIndex % length]);
+                _buildingMatIndex++;
             }
             else
             {
-                go.GetComponent<MeshRenderer>().material =
-                    StreetscapeGeometryMaterialTerrain;
+                renderer.SetPropertyBlock(_propertyBlocks[0]);
             }
 
             Pose pose = geometry.pose;

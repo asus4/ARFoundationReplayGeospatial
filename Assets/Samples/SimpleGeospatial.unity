@@ -298,6 +298,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3a5a66d1f5c534a27a708c3f235eaa5d, type: 2}
   StreetscapeGeometryMaterialTerrain: {fileID: 2100000, guid: 775ce3c1866ce4692b5d2cd9c1848a39,
     type: 2}
+  streetscapeMaterial: {fileID: 2100000, guid: 775ce3c1866ce4692b5d2cd9c1848a39, type: 2}
+  colorForTerrain: {r: 0.047864318, g: 1, b: 0, a: 0.2627451}
+  streetscapeColors:
+  - {r: 0.15395391, g: 1, b: 0, a: 0.24705882}
+  - {r: 1, g: 0.57580614, b: 0, a: 0.24705882}
+  - {r: 0, g: 0.54109573, b: 1, a: 0.24705882}
+  - {r: 0.9824476, g: 1, b: 0, a: 0.24705882}
 --- !u!1 &569233390
 GameObject:
   m_ObjectHideFlags: 0
