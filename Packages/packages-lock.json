@@ -7,13 +7,19 @@
       "dependencies": {},
       "hash": "9aa51ce1e8da24e27053bf2448c127c4263c2096"
     },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "4.1.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.github.asus4.arfoundationreplay": {
       "version": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.unity.xr.arfoundation": "5.1.2",
-        "com.cysharp.memorypack": "1.10.0"
+        "com.unity.xr.arfoundation": "5.1.3"
       }
     },
     "com.google.ar.core.arfoundation.extensions": {
@@ -134,7 +140,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
+      "version": "3.0.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -152,11 +158,11 @@
       }
     },
     "com.unity.xr.arcore": {
-      "version": "5.1.1",
+      "version": "5.1.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.arfoundation": "5.1.1",
+        "com.unity.xr.arfoundation": "5.1.3",
         "com.unity.xr.core-utils": "2.1.0",
         "com.unity.xr.management": "4.0.1",
         "com.unity.modules.androidjni": "1.0.0",
@@ -165,7 +171,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "5.1.2",
+      "version": "5.1.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -183,12 +189,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arkit": {
-      "version": "5.1.1",
+      "version": "5.1.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0",
-        "com.unity.xr.arfoundation": "5.1.1",
+        "com.unity.xr.arfoundation": "5.1.3",
         "com.unity.xr.core-utils": "2.1.0",
         "com.unity.xr.management": "4.0.1"
       },
