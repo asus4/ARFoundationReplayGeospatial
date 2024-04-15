@@ -74,6 +74,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# NugetForUnity generated folder
+Assets/[Pp]ackages
+
+# Project specific ignores
 *.mp4
 # Ignore my API keys
 ProjectSettings/ARCoreExtensionsProjectSettings.json
