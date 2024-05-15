@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.cysharp.memorypack": "https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/Plugins/MemoryPack#1.9.16",
+    "com.cysharp.memorypack": "https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/MemoryPack.Unity#1.21.1",
     "com.github-glitchenzo.nugetforunity": "4.1.0",
     "com.github.asus4.arfoundationreplay": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
     "com.google.ar.core.arfoundation.extensions": "file:../../arcore-unity-extensions",
@@ -9,8 +9,8 @@
     "com.unity.test-framework": "1.1.33",
     "com.unity.textmeshpro": "3.0.8",
     "com.unity.ugui": "1.0.0",
-    "com.unity.xr.arcore": "5.1.3",
-    "com.unity.xr.arkit": "5.1.3",
+    "com.unity.xr.arcore": "5.1.4",
+    "com.unity.xr.arkit": "5.1.4",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
