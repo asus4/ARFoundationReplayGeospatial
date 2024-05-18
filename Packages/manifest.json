@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.cysharp.memorypack": "https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/MemoryPack.Unity#1.21.1",
     "com.github-glitchenzo.nugetforunity": "4.1.0",
     "com.github.asus4.arfoundationreplay": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
     "com.google.ar.core.arfoundation.extensions": "file:../../arcore-unity-extensions",

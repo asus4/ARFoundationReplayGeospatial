@@ -28,7 +28,6 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
     using UnityEngine.XR.ARFoundation;
     using UnityEngine.XR.ARSubsystems;
     using Unity.XR.CoreUtils;
-    using ARFoundationReplay;
 
 #if UNITY_ANDROID
     using UnityEngine.Android;
