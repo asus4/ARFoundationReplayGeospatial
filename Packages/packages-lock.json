@@ -8,22 +8,24 @@
       "url": "https://package.openupm.com"
     },
     "com.github.asus4.arfoundationreplay": {
-      "version": "file:../../ARFoundationReplay/Packages/com.github.asus4.arfoundationreplay",
+      "version": "https://github.com/asus4/ARFoundationReplay.git?path=Packages/com.github.asus4.arfoundationreplay#v0.2.1",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.xr.arfoundation": "5.1.4"
-      }
+      },
+      "hash": "d31b98c04b8a80f595f34d697b22c0e02f67f537"
     },
     "com.google.ar.core.arfoundation.extensions": {
-      "version": "file:../../arcore-unity-extensions",
+      "version": "https://github.com/asus4/arcore-unity-extensions.git#v1.43.0-replay",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.xr.arfoundation": "4.1.5",
         "com.unity.xr.arcore": "4.1.5",
         "com.unity.xr.arkit": "4.1.5"
-      }
+      },
+      "hash": "411a07716b5cfd67bb35004353f8fcb0fe64ef74"
     },
     "com.unity.burst": {
       "version": "1.8.13",
