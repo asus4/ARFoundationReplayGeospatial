@@ -76,12 +76,9 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             }).ToArray();
         }
 
-        /// <summary>
-        /// Unity's OnEnable() method.
-        /// </summary>
-        public void OnEnable()
+        private void OnEnable()
         {
-            _streetScapeGeometryManager.StreetscapeGeometriesChanged += GetStreetscapeGeometry;
+            _streetScapeGeometryManager.StreetscapeGeometriesChanged += OnStreetscapeGeometriesChanged;
         }
 
         private void OnDisable()
@@ -89,7 +86,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             StopAllCoroutines();
             Debug.Log("Stop location services.");
             Input.location.Stop();
-            _streetScapeGeometryManager.StreetscapeGeometriesChanged -= GetStreetscapeGeometry;
+            _streetScapeGeometryManager.StreetscapeGeometriesChanged -= OnStreetscapeGeometriesChanged;
         }
 
         private IEnumerator Start()
@@ -127,7 +124,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
         }
 
 
-        private void GetStreetscapeGeometry(ARStreetscapeGeometriesChangedEventArgs eventArgs)
+        private void OnStreetscapeGeometriesChanged(ARStreetscapeGeometriesChangedEventArgs eventArgs)
         {
             foreach (var added in eventArgs.Added)
             {
