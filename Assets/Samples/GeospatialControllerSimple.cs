@@ -63,7 +63,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             Screen.orientation = ScreenOrientation.Portrait;
             Application.targetFrameRate = 60;
 
-            var origin = FindObjectOfType<XROrigin>();
+            var origin = FindFirstObjectByType<XROrigin>();
             _earthManager = origin.GetComponent<AREarthManager>();
             _streetScapeGeometryManager = origin.GetComponent<ARStreetscapeGeometryManager>();
             Debug.Log("Geospatial sample initialized.");

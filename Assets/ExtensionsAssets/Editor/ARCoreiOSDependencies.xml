@@ -1,6 +1,5 @@
 <dependencies>
-    <iosPods>
-        <iosPod name="ARCore/GARSession" version="~> 1.43.0" minTargetSdk="12.0">
-        </iosPod>
-    </iosPods>
+    <remoteSwiftPackage url="https://github.com/google-ar/arcore-ios-sdk.git" version="1.52.0">
+        <swiftPackage name="ARCoreGARSession" replacesPod="ARCore/GARSession"/>
+    </remoteSwiftPackage>
 </dependencies>
