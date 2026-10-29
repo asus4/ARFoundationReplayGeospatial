@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
   m_Name: iPhone Settings
   m_EditorClassIdentifier: 
-  m_LoaderManagerInstance: {fileID: 2942170139900515190}
+  m_Manager: {fileID: 2942170139900515190}
   m_InitManagerOnStart: 1
 --- !u!114 &-8223515448632891218
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
   m_Name: Standalone Settings
   m_EditorClassIdentifier: 
-  m_LoaderManagerInstance: {fileID: -9121895747287806385}
+  m_Manager: {fileID: -9121895747287806385}
   m_InitManagerOnStart: 1
 --- !u!114 &-4106905451875138744
 MonoBehaviour:
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
   m_Name: VisionOS Settings
   m_EditorClassIdentifier: 
-  m_LoaderManagerInstance: {fileID: 5312942364939753316}
+  m_Manager: {fileID: 5312942364939753316}
   m_InitManagerOnStart: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -88,12 +88,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dc886499c26824283350fa532d087d, type: 3}
   m_Name: XRGeneralSettingsPerBuildTarget
   m_EditorClassIdentifier: 
-  Keys: 04000000070000000100000024000000
-  Values:
-  - {fileID: -8672774981801859648}
-  - {fileID: 949492084795813553}
-  - {fileID: -7600504485100727577}
-  - {fileID: -4106905451875138744}
+  Keys: 
+  Values: []
+  m_SettingsPerBuildTarget:
+  - buildTarget: 4
+    settings: {fileID: -8672774981801859648}
+  - buildTarget: 7
+    settings: {fileID: 949492084795813553}
+  - buildTarget: 1
+    settings: {fileID: -7600504485100727577}
+  - buildTarget: 36
+    settings: {fileID: -4106905451875138744}
 --- !u!114 &949492084795813553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
   m_Name: Android Settings
   m_EditorClassIdentifier: 
-  m_LoaderManagerInstance: {fileID: -8223515448632891218}
+  m_Manager: {fileID: -8223515448632891218}
   m_InitManagerOnStart: 1
 --- !u!114 &2942170139900515190
 MonoBehaviour:
