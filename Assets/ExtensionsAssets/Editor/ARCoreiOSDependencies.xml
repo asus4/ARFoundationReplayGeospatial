@@ -1,5 +1,5 @@
 <dependencies>
-    <remoteSwiftPackage url="https://github.com/google-ar/arcore-ios-sdk.git" version="1.52.0">
+    <remoteSwiftPackage url="https://github.com/google-ar/arcore-ios-sdk.git" version="1.57.1">
         <swiftPackage name="ARCoreGARSession" replacesPod="ARCore/GARSession"/>
     </remoteSwiftPackage>
 </dependencies>
